@@ -4,6 +4,19 @@ const addEmployeesBtn = document.querySelector('#add-employees-btn');
 // Collect employee data
 const collectEmployees = function() {
   // TODO: Get user input to create and return an array of employee objects
+  let keepAdding = true;
+  let employeeArray = [];
+
+  while (keepAdding) {
+    let newEmployee = {
+      firstName: window.prompt("Please, enter the employee's first name."),
+      lastName: window.prompt("Please, enter the employee's last name."),
+      salary: window.prompt("Please, enter the employee's salary.")
+    }
+    employeeArray.push(newEmployee);
+    keepAdding = window.confirm("Would you like to continue?");
+  }
+  return employeeArray;
 }
 
 // Display the average salary
