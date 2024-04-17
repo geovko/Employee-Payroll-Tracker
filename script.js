@@ -11,8 +11,13 @@ const collectEmployees = function() {
     let newEmployee = {
       firstName: window.prompt("Please, enter the employee's first name."),
       lastName: window.prompt("Please, enter the employee's last name."),
-      salary: window.prompt("Please, enter the employee's salary.")
+      salary: Number(window.prompt("Please, enter the employee's salary."))
     }
+
+    if (isNaN(newEmployee.salary)) {
+      newEmployee.salary = 0;
+    }
+
     employeeArray.push(newEmployee);
     keepAdding = window.confirm("Would you like to continue?");
   }
@@ -22,6 +27,13 @@ const collectEmployees = function() {
 // Display the average salary
 const displayAverageSalary = function(employeesArray) {
   // TODO: Calculate and display the average salary
+  let total = 0;
+  for (i = 0; i < employeesArray.length; i++) {
+    total += employeesArray[i].salary;
+  }
+
+  let avg = (total/employeesArray.length).toLocaleString("en-US", {style:"currency", currency:"USD"});
+  console.log(`The average employee salary between our ${employeesArray.length} employee(s) is ${avg}`);
 }
 
 // Select a random employee
