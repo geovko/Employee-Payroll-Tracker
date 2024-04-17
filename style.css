@@ -106,6 +106,12 @@ tbody tr:nth-child(even) {
   cursor: pointer;
 }
 
+/* Gives the button a little pizzazz~ */
+.btn:hover {
+  box-shadow: 0 0 10px #001f58;
+  background-color: hsl(223, 100%, 62%);
+}
+
 button[disabled] {
   cursor: default;
   background: #c0c7cf;
